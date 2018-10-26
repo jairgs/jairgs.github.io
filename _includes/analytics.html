@@ -3,6 +3,8 @@
 {% case site.analytics.provider %}
 {% when "google" %}
   {% include /analytics-providers/google.html %}
+{% when "gtm" %}
+  {% include /analytics-providers/gtm.html %}
 {% when "google-universal" %}
   {% include /analytics-providers/google-universal.html %}
 {% when "google-gtag" %}
