@@ -10,7 +10,7 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                    : "minimal-mistakes-jekyll"
+theme                    : "jekyll-theme-minimal"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Jair G Website"
 title_separator          : "|"
 name                     : "Jair Garza"
-description              : "I Do Data Science, Machine Learning and Economics."
+description              : "Some of my work"
 url                      : "https://jairgs.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "jairgs/jair.github.io"
