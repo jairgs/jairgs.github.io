@@ -19,7 +19,7 @@ title                    : "Jair G Website"
 title_separator          : "|"
 name                     : "Jair Garza"
 description              : "Jair's Personal Website"
-url                      : "https://jairgs.github.io"
+url                      : "http://jairgs.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "jairgs/jair.github.io"
 teaser                   : #"/assets/images/logo.png"
@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "Jair Garza"
-  avatar           : "/assets/images/profiles/jg2.jpg"
+  avatar           : "/assets/ppme.jpg"
   bio              : "Some of My Work"
   location         : "Monterrey, Mexico"
   email            : 
