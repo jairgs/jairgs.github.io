@@ -17,6 +17,7 @@ gem "jekyll", "~> 3.5"
 gem "minimal-mistakes-jekyll"
 gem "jekyll-include-cache"
 gem "github-pages"
+gem "nokogiri", ">= 1.10.8"
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
