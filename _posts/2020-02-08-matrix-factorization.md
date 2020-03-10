@@ -18,7 +18,7 @@ In this entry I discuss briefly the whys and some of it's applications.
 
 ## Advantages of matrix factorization  
 Latent variables representation: to represent the data as each column and each observation having a weight for several latent variables.
-$$U^TM \approx R$$ where M is of dimensions rows x latent variables and U is of dimensions columns x latent variables. R approximates the original matrix. 
+$$ U^TM \approx R $$ where M is of dimensions rows x latent variables and U is of dimensions columns x latent variables. R approximates the original matrix. 
 R can be interpreted in product recommendation as rows=people and columns= movies. And the latent variables are factors such as movie sadness, genre, some actors staring etc.
 
 ![recommender](/assets/postsImages/recommend.PNG  "Recommender System")
