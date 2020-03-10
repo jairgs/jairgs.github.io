@@ -4,7 +4,7 @@ excerpt: "In this brief tutorial we will go through the step by step of deployin
 toc: true
 toc_sticky: true
 header:
-  image: https://cdn.pixabay.com/photo/2018/01/30/13/28/container-3118783_1280.jpg
+  overlay_image: https://cdn.pixabay.com/photo/2018/01/30/13/28/container-3118783_1280.jpg
   caption: "Photo by Pixabay"
 tags: 
   - Cloud Computing 
