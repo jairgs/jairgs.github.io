@@ -15,7 +15,7 @@ tags:
 ---
 <div style=text-align:center>
 <a href="https://jairgs.shinyapps.io/textpredictor">
-<img src="/mnt/c/Users/jair_/jairgs.github.io/assets/shiny.png" height="50">
+<img src="/assets/shiny.png" height="50">
 <br>
 Go to the app 
 </a>
