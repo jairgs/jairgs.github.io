@@ -1,6 +1,5 @@
 ---
 title: "Why use matrix factorization?"
-excerpt: "The other day I was asked what are the advantages of using matrix factorization and in particular what are the advantages of doing dimensionality reduction in machine learning."
 toc: true
 toc_sticky: true
 header:
@@ -12,8 +11,8 @@ tags:
   - Feature Engineering
   - Dimensionality Reduction
 ---
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Why use matrix factorization?
 The other day I was asked what are the advantages of using matrix factorization and in particular what are the advantages of doing dimensionality reduction in machine learning.  
 In this entry I discuss briefly the whys and some of it's applications.
 
@@ -22,7 +21,7 @@ Latent variables representation: to represent the data as each column and each o
 $U^TM \approx R$ where M is of dimensions rows x latent variables and U is of dimensions columns x latent variables. R approximates the original matrix. 
 R can be interpreted in product recommendation as rows=people and columns= movies. And the latent variables are factors such as movie sadness, genre, some actors staring etc.
 
-![recommender](assets/postsImages/recommend.PNG  "Recommender System")
+![recommender](/assets/postsImages/recommend.PNG  "Recommender System")
 
 Dimensionality reduction such as in text features where you usually have a very large sparse matrix. 
 
@@ -31,12 +30,12 @@ Computation time. This is one of the main reasons why you would want to use matr
 Recommender systems for estimation.
 Many different representations of the data, reduce and then concatenate. This can be interpreted as a model itself or a naive way of doing ensembling.
 
-![append](assets/postsImages/append.PNG  "Append many features of different techniques")
+![append](/assets/postsImages/append.PNG  "Append many features of different techniques")
 
 Many different representations of the data but then use ensembling
 Matrix factorization on transformed data (e.g. log) can give new good features. 
 
-![features](assets/postsImages/features.PNG  "Feature Engineering")
+![features](/assets/postsImages/features.PNG  "Feature Engineering")
 
 ## Algorithms
 SVD and PCA. Standard matrix factorizations. 
