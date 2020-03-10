@@ -13,17 +13,16 @@ tags:
   - Natural Language Processing
   - Markov Process
 ---
-<!--
-<div style={width:100%; text-align:center}>
--->
-<a src=https://jairgs.shinyapps.io/textpredictor>
-<img src="/assets/shiny.png">
+
+<div>
+<a src="https://jairgs.shinyapps.io/textpredictor">
+<img src="/assets/shiny.png" height=100>
 <br>
 Go to the app 
 </a>
-<!--
 </div>
--->
+
+---
 
 We are living in the era of smartphones and digital communications have changed the way we communicate with our peers. We spend increasing amounts of time typing on our electronics with our friends, job colleagues and in social media in general. Depending on the size of the dispositive, it can be quite challenging to accurately type what we want, thus potentially wasting a lot of time. 
 
