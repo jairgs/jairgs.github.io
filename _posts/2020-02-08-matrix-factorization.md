@@ -1,5 +1,6 @@
 ---
 title: "Why use matrix factorization?"
+excerpt: "The other day I was asked what are the advantages of using matrix factorization and in particular what are the advantages of doing dimensionality reduction in machine learning."
 toc: true
 toc_sticky: true
 header:
@@ -11,7 +12,6 @@ tags:
   - Feature Engineering
   - Dimensionality Reduction
 ---
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 The other day I was asked what are the advantages of using matrix factorization and in particular what are the advantages of doing dimensionality reduction in machine learning.  
 In this entry I discuss briefly the whys and some of it's applications.
