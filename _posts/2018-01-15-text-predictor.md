@@ -19,7 +19,7 @@ tags:
 <br>
 Go to the app 
 </a>
-<div>
+</div>
 
 ---
 
