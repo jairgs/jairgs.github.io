@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 header:
   overlay_image: https://cdn.pixabay.com/photo/2020/01/11/14/10/factory-4757647_1280.jpg
+  overlay_filter: .5
   caption: "Photo by Pixabay"
 tags: 
   - Machine Learning 

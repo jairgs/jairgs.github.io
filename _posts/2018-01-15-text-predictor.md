@@ -35,16 +35,16 @@ In this project, we are building our own text prediction algorithm as a prototyp
 - Performance.
 - Presentation.
 
-#### Size on memory.
+### Size on memory
 Random Access Memory (RAM) is expensive and therefore limited in electronics. We need our program to use little system RAM so it can run smoothly simultaneously with other important applications. Also, by lowering the memory requirements in the system, we make our potential user base size bigger and the app to start faster since less memory has to be allocated and filled with information. 
 
-#### Execution time. 
+### Execution time 
 It is utterly important that the prediction time is as fast as the average typing speed since we need to predict the words as people are typing, not after they have completed the idea. 
 
-#### Performance.
+### Performance
 We need the program to be relevant and make very accurate predictions of the next word in order to be useful, otherwise people won't use it. 
 
-#### Presentation.
+### Presentation
 They way the prediction is presented and displayed on the screen can be very important for the program appeal and relevance. 
 
 ## Data and Corpora
@@ -69,9 +69,9 @@ As we show in the next section, the size of this corpora makes the computation t
 ## Exploratory Analysis
 The way we are going to model the data in order to make a prediction is with the basic N-gram model. This representation of the structure of the data has the advantage of being very easy to interpret, has low computation times compared with other models, can be very accurate depending on several factors and assumptions that we are gonna cover in the next sections, has good scalability in the sense that we can relax assumptions and make it more complex if necessary and also some versions the N-gram model are probabilistic so we can make inference about the population, even for unseen cases in the training set.
 
-An $N-gram$ is a decomposition of a corpora of each combination of $N$ consecutive words making a phrase. In it's basic form, we can take the an $N-1$ gram and predict the last word based on the probability dependent on the original $N-gram$. The mathematical representation of the model is presented in the next sections. 
+An $$N-gram$$ is a decomposition of a corpora of each combination of $$N$$ consecutive words making a phrase. In it's basic form, we can take the an $$N-1$$ gram and predict the last word based on the probability dependent on the original $$N-gram$$. The mathematical representation of the model is presented in the next sections. 
 
-Tokenization is the process of splitting the corpora in tokens that can be phrases, words, characters and whatnot. After the tokenization is made, we can compute our $N-grams$ and corresponding frequencies. We found the package *ngram*<sup>[1](#footnote1)</sup> to be relatively fast in creating the tokenization and associated ngrams since the relevant code is low level written in C. However, the conversion of the results into R data frames is still very time consuming and we needed to use a sample of the corpora to make our algorithm. In fact, we sampled each corpus separately to keep each type of corpus representative randomly sampling 30% of the lines. Here is an example of the sampling process. 
+Tokenization is the process of splitting the corpora in tokens that can be phrases, words, characters and whatnot. After the tokenization is made, we can compute our $$N-grams$$ and corresponding frequencies. We found the package *ngram*<sup>[1](#footnote1)</sup> to be relatively fast in creating the tokenization and associated ngrams since the relevant code is low level written in C. However, the conversion of the results into R data frames is still very time consuming and we needed to use a sample of the corpora to make our algorithm. In fact, we sampled each corpus separately to keep each type of corpus representative randomly sampling 30% of the lines. Here is an example of the sampling process. 
 ```{r}
 set.seed(147)
 twitter.intrain <- as.logical(rbinom(n = length(twitter), size = 1, prob = .3))
@@ -88,29 +88,29 @@ barplot(head(count[order(count, decreasing = T)],100), main="2-gram Frequency Di
 ```
 From the previous plot we learned that we can save a lot of space in memory if we prune each N-gram without losing too much information since the size in memory is related to the number of N-grams but precision is related to the relative frequency of the N-grams.
 
-In fact, the guys at *Google Ngram Project* decided to prune the distribution for N-grams with frequency $k$ lower than 40.<sup>[2](#footnote2)</sup> We can't use the $k=40$ parameter used by Google because this number is determined by:
+In fact, the guys at *Google Ngram Project* decided to prune the distribution for N-grams with frequency $$k$$ lower than 40.<sup>[2](#footnote2)</sup> We can't use the $$k=40$$ parameter used by Google because this number is determined by:
 
 1. The size of the corpora
 2. The cumulative frequency they are willing to retain.
 
-We decided to go for a $k=5$ for the 2-gram and 3-gram cases and $k=1$ for the 4-gram to keep a cumulative frequency of around 60% of the N-grams; we kept the complete 1-gram table since it doesn't take a lot of memory.
+We decided to go for a $$k=5$$ for the 2-gram and 3-gram cases and $$k=1$$ for the 4-gram to keep a cumulative frequency of around 60% of the N-grams; we kept the complete 1-gram table since it doesn't take a lot of memory.
 
 ## Mathematics and Handling of Unseen Cases
-To describe the mathematics behind our model we need some special notation commonly used in *NLP*. We are usually interested in measuring the probability of a chain of words in order $P(w_n|w_1, w_2, w_3, ..., w_n-1)$, this is the probability of observing $w_n$ given $w_1, w_2, ..., w_n-1$. We usually write $w_1^{n-1}$ to suggest a chain of words, not in the sense of exponentials. By the *Chain Rule of Probability* we know $P(w_n|w_1, w_2, w_3, ..., w_{n-1}) = P(w_1)P(w_2|w_1)P(w_3|w_2,w_1)...P(w_n|w_1^{n-1}) = \prod_z^n P(w_n|w_1^{z-1})$.
+To describe the mathematics behind our model we need some special notation commonly used in *NLP*. We are usually interested in measuring the probability of a chain of words in order $$P(w_n|w_1, w_2, w_3, ..., w_n-1)$$, this is the probability of observing $$w_n$$ given $$w_1, w_2, ..., w_n-1$$. We usually write $$w_1^{n-1}$$ to suggest a chain of words, not in the sense of exponentials. By the *Chain Rule of Probability* we know $$P(w_n|w_1, w_2, w_3, ..., w_{n-1}) = P(w_1)P(w_2|w_1)P(w_3|w_2,w_1)...P(w_n|w_1^{n-1}) = \prod_z^n P(w_n|w_1^{z-1})$$.
 
 In practice it is computationally intensive to make computations for very large phrases according to this formula but we can approximate this conditional probability by a *Markovian Process* which assumes the transition probabilities are constant which means it only matters the current state to compute the conditional probability, not the way you arrived there. This is a good approximation for NLP models because it is usually only a few words back that matter to make context for the next word, not a very long chain of words.
 
-For the *2gram* model or *bigram* we can write this Markovian assumption as $P(w_n|w_1^{n-1})\approx P(w_n|w_{n-1})$ 
+For the *2gram* model or *bigram* we can write this Markovian assumption as $$P(w_n|w_1^{n-1})\approx P(w_n|w_{n-1})$$ 
 
-The *Maximum Likelihood Estimator (**MLE**)* of this conditional probability can be constructed using frequencies in the training set. To compute the *MLE* of the bigram model for example we use $MLE = \frac{C(w_{n-1}, w_n)}{C(w_{n-1}, w)}$ where $C$ is the observed frequency in the training set and $w_{n-1}, w$ means all the bigrams that begin with $w_{n-1}$.
+The *Maximum Likelihood Estimator (**MLE**)* of this conditional probability can be constructed using frequencies in the training set. To compute the *MLE* of the bigram model for example we use $$MLE = \frac{C(w_{n-1}, w_n)}{C(w_{n-1}, w)}$$ where $$C$$ is the observed frequency in the training set and $$w_{n-1}, w$$ means all the bigrams that begin with $$w_{n-1}$$.
 
-To handle unseen cases we use the simple backoff without interpolation. We begin in the $4gram$ model and if the $3gram$ used to predict the last word is unseen in the corpora, we backoff to the $2gram$ model and if it is unobserved again, we backoff to the $1gram$ model. 
+To handle unseen cases we use the simple backoff without interpolation. We begin in the $$4gram$$ model and if the $$3gram$$ used to predict the last word is unseen in the corpora, we backoff to the $$2gram$$ model and if it is unobserved again, we backoff to the $$1gram$$ model. 
 
-The Stupid Backoff<sup>[2](#footnote2)</sup> introduced by the *Google* team uses this kind of not probabilistic backoff but they use interpolation to compute frequencies using all $ngrams$ from the $5gram$ to the *unigram* at every step of the way. We believe that for the purposes of this prototype, the simple backoff model implemented is sufficiently good.
+The Stupid Backoff<sup>[2](#footnote2)</sup> introduced by the *Google* team uses this kind of not probabilistic backoff but they use interpolation to compute frequencies using all $$ngrams$$ from the $$5gram$$ to the *unigram* at every step of the way. We believe that for the purposes of this prototype, the simple backoff model implemented is sufficiently good.
 
 ## Implementation
 The App is deployed at the Rstudio's Shiny Apps Server and it showcases the text prediction result using the best 5 predictions.
-We decided to predict not only words based on the $ngrams$ but also to predict the word currently being typed using the *unigram*.
+We decided to predict not only words based on the $$ngrams$$ but also to predict the word currently being typed using the *unigram*.
 
 The way we present the predictions is by making the size of the word proportional to their likelihood using the wordcloud2 javascript library implementation in R.<sup>[4](#footnote4)</sup>
 
@@ -118,7 +118,7 @@ The prediction algorithm runs acceptably fast with hundredths of a second of run
 
 ## Next steps
 
-The next steps consist of using the whole corpora to build the ngrams and maybe extend to the $5gram$ case if this adds important accuracy. This additions increase the computation time importantly for one-threaded processes meaning parallel processing would be needed to handle this task maybe also using hashing to efficiently store text chains. Using low level programming languages like *C* would reduce the processing times importantly.
+The next steps consist of using the whole corpora to build the ngrams and maybe extend to the $$5gram$$ case if this adds important accuracy. This additions increase the computation time importantly for one-threaded processes meaning parallel processing would be needed to handle this task maybe also using hashing to efficiently store text chains. Using low level programming languages like *C* would reduce the processing times importantly.
 
 One other possible addition would be to add a profanity filter and case sensitive options to the algorithm. 
 
