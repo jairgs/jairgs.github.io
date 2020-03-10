@@ -1,6 +1,19 @@
+---
+title: "How to deploy a Docker container app"
+toc: true
+toc_sticky: true
+header:
+  image: https://cdn.pixabay.com/photo/2018/01/30/13/28/container-3118783_1280.jpg
+  caption: "Photo by Pixabay"
+tags: 
+  - Cloud Computing 
+  - Containerization
+  - Docker
+  - Kubernetes
+---
+
 # How to deploy a Docker container app in IBM cloud using Kubernetes  
-In this brief tutorial we will go through the step by step of deploying apps on IBM's 
-cloud using docker and kubernetes.  
+In this brief tutorial we will go through the step by step of deploying apps on IBM's cloud using docker and kubernetes.  
 Google, Amazon and Microsoft also use kubernetes or a variant for cluster orchestration 
 and so this guide will also serve as a guide for any cloud deployment.
 
