@@ -13,7 +13,7 @@ tags:
   - Natural Language Processing
   - Markov Process
 ---
-<div style=text-align:center>
+<div style="text-align:center; width:100%">
 <a href="https://jairgs.shinyapps.io/textpredictor">
 <img src="/assets/shiny.png" height="50">
 <br>
