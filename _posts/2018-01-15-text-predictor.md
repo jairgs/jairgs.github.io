@@ -71,13 +71,17 @@ The way we are going to model the data in order to make a prediction is with the
 
 An $$N-gram$$ is a decomposition of a corpora of each combination of $$N$$ consecutive words making a phrase. In it's basic form, we can take the an $$N-1$$ gram and predict the last word based on the probability dependent on the original $$N-gram$$. The mathematical representation of the model is presented in the next sections. 
 
-Tokenization is the process of splitting the corpora in tokens that can be phrases, words, characters and whatnot. After the tokenization is made, we can compute our $$N-grams$$ and corresponding frequencies. We found the package *ngram*<sup>[1](#footnote1)</sup> to be relatively fast in creating the tokenization and associated ngrams since the relevant code is low level written in C. However, the conversion of the results into R data frames is still very time consuming and we needed to use a sample of the corpora to make our algorithm. In fact, we sampled each corpus separately to keep each type of corpus representative randomly sampling 30% of the lines. Here is an example of the sampling process. 
+Tokenization is the process of splitting the corpora in tokens that can be phrases, words, characters and whatnot. After the tokenization is made, we can compute our $$N-grams$$ and corresponding frequencies.  
+We found the package *ngram*<sup>[1](#footnote1)</sup> to be relatively fast in creating the tokenization and associated ngrams since the relevant code is low level written in C. However, the conversion of the results into R data frames is still very time consuming and we needed to use a sample of the corpora to make our algorithm. In fact, we sampled each corpus separately to keep each type of corpus representative randomly sampling 30% of the lines. Here is an example of the sampling process.  
+
 ```{r}
 set.seed(147)
-twitter.intrain <- as.logical(rbinom(n = length(twitter), size = 1, prob = .3))
+twitter.intrain <- as.logical(rbinom(n = length(twitter), 
+                                    size = 1, prob = .3))
 twitter.train <- twitter[twitter.intrain]
 twitter.test <- twitter[-twitter.intrain]
 ```
+
 The computational time to compute the ngram and frequency tables was slightly below one hour for the 1-grams and 2-grams and more than one hour for the 3-grams and 4-grams each. We decided that for the purposes of this prototype this 4 N-grams would do just fine to model the structure of the data and make good predictions.
 
 One important aspect of the corpora is that it contains profanity words in there and we decided that the *Google Ngram Project* profanity list (you can find a version of that list at https://gist.github.com/jamiew/1112488) is more than appropriate for our purposes; although, in the end we decided not to filter for profanities in the prototype since there is no valid reason to do so.
@@ -96,13 +100,22 @@ In fact, the guys at *Google Ngram Project* decided to prune the distribution fo
 We decided to go for a $$k=5$$ for the 2-gram and 3-gram cases and $$k=1$$ for the 4-gram to keep a cumulative frequency of around 60% of the N-grams; we kept the complete 1-gram table since it doesn't take a lot of memory.
 
 ## Mathematics and Handling of Unseen Cases
-To describe the mathematics behind our model we need some special notation commonly used in *NLP*. We are usually interested in measuring the probability of a chain of words in order $$P(w_n|w_1, w_2, w_3, ..., w_n-1)$$, this is the probability of observing $$w_n$$ given $$w_1, w_2, ..., w_n-1$$. We usually write $$w_1^{n-1}$$ to suggest a chain of words, not in the sense of exponentials. By the *Chain Rule of Probability* we know $$P(w_n|w_1, w_2, w_3, ..., w_{n-1}) = P(w_1)P(w_2|w_1)P(w_3|w_2,w_1)...P(w_n|w_1^{n-1}) = \prod_z^n P(w_n|w_1^{z-1})$$.
+To describe the mathematics behind our model we need some special notation commonly used in *NLP*. We are usually interested in measuring the probability of a chain of words in order 
+$$P(w_n|w_1, w_2, w_3, ..., w_n-1)$$  
+this is the probability of observing $$w_n$$ given 
+$$w_1, w_2, ..., w_n-1$$  
+We usually write $$w_1^{n-1}$$ to suggest a chain of words, not in the sense of exponentials.   
+By the *Chain Rule of Probability* we know that  
+$$P(w_n|w_1, w_2, w_3, ..., w_{n-1}) = P(w_1)P(w_2|w_1)P(w_3|w_2,w_1)...P(w_n|w_1^{n-1}) = \prod_z^n P(w_n|w_1^{z-1})$$.
 
 In practice it is computationally intensive to make computations for very large phrases according to this formula but we can approximate this conditional probability by a *Markovian Process* which assumes the transition probabilities are constant which means it only matters the current state to compute the conditional probability, not the way you arrived there. This is a good approximation for NLP models because it is usually only a few words back that matter to make context for the next word, not a very long chain of words.
 
-For the *2gram* model or *bigram* we can write this Markovian assumption as $$P(w_n|w_1^{n-1})\approx P(w_n|w_{n-1})$$ 
+For the *2gram* model or *bigram* we can write this Markovian assumption as  
+$$P(w_n|w_1^{n-1})\approx P(w_n|w_{n-1})$$  
 
-The *Maximum Likelihood Estimator (**MLE**)* of this conditional probability can be constructed using frequencies in the training set. To compute the *MLE* of the bigram model for example we use $$MLE = \frac{C(w_{n-1}, w_n)}{C(w_{n-1}, w)}$$ where $$C$$ is the observed frequency in the training set and $$w_{n-1}, w$$ means all the bigrams that begin with $$w_{n-1}$$.
+The *Maximum Likelihood Estimator (**MLE**)* of this conditional probability can be constructed using frequencies in the training set. To compute the *MLE* of the bigram model for example we use  
+$$MLE = \frac{C(w_{n-1}, w_n)}{C(w_{n-1}, w)}$$  
+where $$C$$ is the observed frequency in the training set and $$w_{n-1}, w$$ means all the bigrams that begin with $$w_{n-1}$$.
 
 To handle unseen cases we use the simple backoff without interpolation. We begin in the $$4gram$$ model and if the $$3gram$$ used to predict the last word is unseen in the corpora, we backoff to the $$2gram$$ model and if it is unobserved again, we backoff to the $$1gram$$ model. 
 
