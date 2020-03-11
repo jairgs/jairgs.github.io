@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 header:
   overlay_image: https://cdn.pixabay.com/photo/2018/01/30/13/28/container-3118783_1280.jpg
+  overlay_filter: .5
   caption: "Photo by Pixabay"
 tags: 
   - Cloud Computing 
