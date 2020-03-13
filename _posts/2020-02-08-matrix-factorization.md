@@ -27,14 +27,19 @@ R can be interpreted in product recommendation as rows=people and columns= movie
 Dimensionality reduction such as in text features where you usually have a very large sparse matrix. 
 
 ## Why or when use matrix factorization
-Computation time. This is one of the main reasons why you would want to use matrix factorization in highly dimensional datasets. 
-Recommender systems for estimation.
-Many different representations of the data, reduce and then concatenate. This can be interpreted as a model itself or a naive way of doing ensembling.
+- Reduced computation time while training.  
+This is one of the main reasons why you would want to use matrix factorization in highly dimensional datasets. It is faster and easier for your training algorithm (e.g. random forest, gradient boosting) to learn form compact information-dense features. 
+
+- Building a recommender systems.  
+By itself, the matrix factorization techniques such as singular value decomposition (SVD) can be used to build recommender systems.
+
+- Dimensionality reduction.  
+While dealing with high dimensional datasets, different transformation techniques can lead to different feature engineered datasets with huge dimensionality (e.g. for the same text data you can compute bag of words, n-grams, tf-idf, etc. see figure below). We can first reduce the dimensionality of each technique and then concatenate the datasets into a smaller dataset to train on. 
 
 ![append](/assets/postsImages/append.PNG  "Append many features of different techniques")
 
-Many different representations of the data but then use ensembling
-Matrix factorization on transformed data (e.g. log) can give new good features. 
+- As feature engineering.  
+We can compute the latent vectors on the levels of original features or on the transformed features (e.g. log) and have different training models. We could use each model in an ensemble. 
 
 ![features](/assets/postsImages/features.PNG  "Feature Engineering")
 
