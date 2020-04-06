@@ -14,8 +14,7 @@ source "https://rubygems.org"
 # To upgrade, run `bundle update`.
 
 gem "jekyll", "~> 3.5"
-gem "github-pages"
-gem "nokogiri", ">= 1.10.8"
+gem "minimal-mistakes-jekyll"
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
@@ -28,4 +27,5 @@ gem "nokogiri", ">= 1.10.8"
 #
 # If you have any other plugins, put them here!
 group :jekyll_plugins do
+    gem "jekyll-data"
 end
