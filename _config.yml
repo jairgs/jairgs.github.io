@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Jair Garza"
   avatar           : "/assets/ppme.jpg"
-  bio              : "Some of My Work"
+  bio              : 
   location         : "Mexico"
   email            : 
   links:
