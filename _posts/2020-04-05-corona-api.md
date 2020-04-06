@@ -5,7 +5,7 @@ toc: true
 toc_sticky: true
 header:
   overlay_image: https://cdn.pixabay.com/photo/2020/03/19/21/35/covid-4948866_1280.jpg
-  overlay_filter: 1
+  overlay_filter: .2
   caption: "Photo by Pixabay"
 tags: 
   - Flask 
