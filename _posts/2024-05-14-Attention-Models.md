@@ -29,23 +29,23 @@ These attentions are a sequence of vectors for each input token.
 ### Decoder
 The decoder is also an RNN in which the next word prediction depends on the previous word, the hidden state and the context (from the encoder).
 
-![decoder](image.png)
+![decoder](/assets/postsImages/image.png)
 
 And the current hidden state in turn depends on the previous hidden state, the previous output token and the current context. Which means both the predicted token and the state are outputs of the RNN in the decoder. 
 
-![hidden state](image-1.png)
+![hidden state](/assets/postsImages/image-1.png)
 
 #### Context (using soft alignment)
 We still need to define the context present in the decoder.  
 The context is given by the following formula:
 
-![context](image-2.png)
+![context](/assets/postsImages/image-2.png)
 
 Which is just a weighted average vector, averaged across all inputs in the sequence.
 
 To calculate the weights, they use an _alignment model_, modelled here as a softmax of the _energies_ (e_ij then mapped into the weights using softmax) which depends on the last hidden state from the RNN and the current annotation.
 
-![energy function](image-3.png)
+![energy function](/assets/postsImages/image-3.png)
 
 This is actually a _soft alignment_ method because it does not focus on one input but on all of them at the same time using a weighted average.
 
@@ -56,7 +56,7 @@ The context is then the _expected annotation_ of the encoder.
 All these concepts (soft alignment, expected annotation, energy) and the mapping functions are the *attention mechanism*.  
 Therefore, I have modified the original diagram to add the attention mechanism.
 
-![attention mechanism](image-4.png)
+![attention mechanism](/assets/postsImages/image-4.png)
 
 Quoted from the original paper:
 _"The probability αij, or its associated energy eij, reflects the importance of the annotation hj with respect to the previous hidden state si−1 in deciding the next state si and generating yi. Intuitively, this implements a mechanism of attention in the decoder."_
@@ -75,11 +75,11 @@ In the self-attention, you calculate the attention weights directly learning the
 
 Therefore, the attention weights are calculated using a dot product of the transformed inputs essentially reaching a matrix of attention weights where you can read how each token is paying attention to every other token in the sequence. You can pass one example and get the activations for one head in the self attention mechanism of the encoder for the last layers (there are 6 layers in this paper):
 
-![activations self attention](image-6.png)
+![activations self attention](/assets/postsImages/image-6.png)
 
 These self attention learned embeddings are used in the following architecture to compose a transformer architecture. 
 
-![transformer](image-5.png)
+![transformer](/assets/postsImages/image-5.png)
 
 The self-attention layers can be learned in parallel to speed up computation compared to RNNs.
 
