@@ -1,15 +1,17 @@
-/* Force splash art to show on collection layout pages */
+/* Adjust splash height on collection layout */
 .page.layout--collection .page__hero--overlay {
     display: block;
-    min-height: 35vh;
+    min-height: 55vh;  /* Adjust to your liking: 45–60vh is a good range */
     background-size: cover;
     background-position: center;
+    margin-bottom: 2rem;
     padding: 2rem 0;
   }
   
-  .page.layout--collection .page__hero-caption {
+  /* Move title below hero section */
+  .page.layout--collection h1.page__title {
+    margin-top: 1rem;
     text-align: center;
-    font-style: italic;
-    color: #eee;
+    font-size: 2rem;
   }
   
