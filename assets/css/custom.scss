@@ -1,6 +1,15 @@
-.layout--home .page__hero {
-    min-height: 35vh !important;
-    padding: 2rem 0 !important;
+/* Force splash art to show on collection layout pages */
+.page.layout--collection .page__hero--overlay {
+    display: block;
+    min-height: 35vh;
     background-size: cover;
     background-position: center;
-}
+    padding: 2rem 0;
+  }
+  
+  .page.layout--collection .page__hero-caption {
+    text-align: center;
+    font-style: italic;
+    color: #eee;
+  }
+  
