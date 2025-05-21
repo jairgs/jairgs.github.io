@@ -281,17 +281,6 @@ defaults:
       comments: false
       share: true
       related: true
-  # _pages and index.md
-  - scope:
-      path: ""
-      type: pages
-    values:
-      css: "custom"
-  - scope:
-      path: ""
-      type: ""
-    values:
-      css: "custom"
 
 collections:
   portfolio:
