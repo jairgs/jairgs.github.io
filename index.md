@@ -6,7 +6,6 @@ classes: wide
 author_profile: true
 
 header:
-  overlay_image: /assets/home_header.jpg
-  overlay_filter: 0.3
+  image: /assets/home_header.jpg
   caption: "Photo by h heyerlein"
 ---
