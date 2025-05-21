@@ -12,17 +12,19 @@
 
 #theme                    : jekyll-theme-minimal
 remote_theme             : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Jair Garza's Website"
 title_separator          : "|"
 name                     : "Jair Garza"
-description              : "My personal website containing my portfolio and blog."
+description              : "A personal website from Jair Garza that contains its professional portfolio in machine learning, data science and artificial intelligence."
 url                      : "https://jairgs.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "jairgs/jair.github.io"
-teaser                   : #"/assets/images/logo.png"
+logo                     : "/assets/JG_Logo.png"
+teaser                   : "/assets/images/default-teaser.jpg"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -83,12 +85,18 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
+
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : "Person"  #or Organization (defaults to Person)
+  name                   : "Jair Garza" # If the user or organization name differs from the site's name
+  links                  :
+    - "https://twitter.com/jair_gs"
+    - "https://www.facebook.com/jair.garza"
+    - "https://instagram.com/jairgs"
+    - "https://www.linkedin.com/in/jairgs" 
+# An array of links to social media profiles
 
 # Analytics
 analytics:
@@ -102,50 +110,44 @@ analytics:
 author:
   name             : "Jair Garza"
   avatar           : "/assets/ppme.jpg"
-  bio              : 
+  bio              : "I'm a data scientist and I write about the projects I work on."
   location         : "Mexico"
-  email            : "jair.garzas@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:jair.garzas@gmail.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      #url: "https://jairgs.github.io"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/jairgs"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/jair_gs"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jairgs"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/jairgs"
+    
 
 # Site Footer
 footer:
   links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:jair.garzas@gmail.com
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/jairgs"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url:  "https://twitter.com/jair_gs"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:   "https://facebook.com/jair.garza"
+      url: "https://twitter.com/jair_gs"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url:  "https://github.com/jairgs"
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
+      url: "https://github.com/jairgs"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://instagram.com/jairgs"
 
 
 # Reading Files
