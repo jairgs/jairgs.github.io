@@ -1,9 +1,7 @@
 ---
-layout: collection
-title: "My Portfolio"
+layout: home
+title: "Welcome to my Personal Website"
 permalink: /
-collection: portfolio
-entries_layout: grid
 classes: wide
 author_profile: true
 
