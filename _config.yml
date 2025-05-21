@@ -287,6 +287,11 @@ defaults:
       type: pages
     values:
       css: "custom"
+  - scope:
+      path: ""
+      type: ""
+    values:
+      css: "custom"
 
 collections:
   portfolio:
