@@ -15,6 +15,10 @@ search: false
     position: relative;
     margin-bottom: 2rem;
     }
+.page__hero--overlay::before {
+    background-color: rgba(0, 0, 0, 0.4); /* or rgba(255,0,0,0.2) for red tint */
+    mix-blend-mode: multiply;
+    }
   
 /* Force the img to fill and crop */
 .page__hero-image {
@@ -24,4 +28,5 @@ search: false
     object-position: center;
     display: block;
     }
+
   
