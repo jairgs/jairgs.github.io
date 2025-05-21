@@ -1,13 +1,16 @@
-/* Limit height of home page header image */
+/* Limit overall hero container height */
 .page__hero {
-    max-height: 300px;         /* adjust as needed (e.g. 300–500px) */
+    max-height: 350px;
     overflow: hidden;
+    margin-bottom: 2rem;
   }
   
-  /* Optional: scale or position image better */
+  /* Ensure the image inside behaves like a background */
   .page__hero img {
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Crop instead of scaling */
+    object-position: center;
+    display: block;
   }
   
