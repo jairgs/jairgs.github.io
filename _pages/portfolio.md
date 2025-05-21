@@ -7,7 +7,7 @@ entries_layout: grid
 author_profile: true
 
 header:
-  overlay_image: https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-desk-15IJv-APJSE
+  overlay_image: https://images.unsplash.com/photo-1637250051543-9fca17abf411
   overlay_filter: .85
-  caption: "Photo by Pixabay"
+  caption: "Photo by Unsplash"
 ---
