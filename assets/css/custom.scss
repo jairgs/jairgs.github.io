@@ -1,15 +1,21 @@
-/* Limit overall hero container height */
+/* Limit the height of the entire hero section */
 .page__hero {
-    max-height: 250px;
+    max-height: 300px;     /* Adjust to taste: try 250px–400px */
     overflow: hidden;
     margin-bottom: 2rem;
   }
   
-  /* Ensure the image inside behaves like a background */
-  .page__hero img {
+  /* Make the figure (image container) fill the hero box */
+  .page__hero-image {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Crop the image visually using object-fit */
+  .page__hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crop instead of scaling */
+    object-fit: cover;
     object-position: center;
     display: block;
   }
