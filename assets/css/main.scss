@@ -10,7 +10,7 @@ search: false
 
 /* Limit the height of the hero container */
 .page__hero {
-    max-height: 350px;
+    height: 350px;
     overflow: hidden;
     position: relative;
     margin-bottom: 2rem;
@@ -23,7 +23,7 @@ search: false
 /* Force the img to fill and crop */
 .page__hero-image {
     width: 100%;
-    height: 100% !important;
+    height: 100%;
     object-fit: cover;
     object-position: center center !important;
     display: block;
