@@ -7,7 +7,12 @@ layout: single
 classes: wide
 author_profile: true
 excerpt: "Built tailored forecasting models for unit sales across product-region segments using cross-validated model selection and Bayesian optimization."
-tags: [forecasting, retail, machine learning, prophet, time series]
+tags:
+  - forecasting
+  - retail
+  - machine learning
+  - prophet
+  - time series
 feature_row: true
 
 header:
