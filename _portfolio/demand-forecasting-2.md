@@ -8,25 +8,10 @@ excerpt: "Built tailored forecasting models for unit sales across product-region
 tags: [forecasting, retail, machine learning, prophet, time series]
 feature_row: true
 header:
-  image: https://images.unsplash.com/photo-1594999853137-3188c27b2886?q=80&w=3731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-  teaser: https://images.unsplash.com/photo-1594999853137-3188c27b2886?q=80&w=3731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-# sidebar:
-#   - title: "Role"
-#     image: http://placehold.it/350x250
-#     image_alt: "logo"
-#     text: "Designer, Front-End Developer"
-#   - title: "Responsibilities"
-#     text: "Reuters try PR stupid commenters should isn't a business model"
-# gallery:
-#   - url: /assets/images/unsplash-gallery-image-1.jpg
-#     image_path: assets/images/unsplash-gallery-image-1-th.jpg
-#     alt: "placeholder image 1"
-#   - url: /assets/images/unsplash-gallery-image-2.jpg
-#     image_path: assets/images/unsplash-gallery-image-2-th.jpg
-#     alt: "placeholder image 2"
-#   - url: /assets/images/unsplash-gallery-image-3.jpg
-#     image_path: assets/images/unsplash-gallery-image-3-th.jpg
-#     alt: "placeholder image 3"
+  overlay_image: /assets/images/post-forecast.png
+image:
+  path: /assets/images/post-forecast.png
+  alt: "Demand Forecast"
 ---
 
 In this project, I was tasked with forecasting unit sales for the next six months using historical monthly data from a large multinational in the industrial coatings sector (Mexican subsidiary, anonymized for confidentiality).
@@ -58,10 +43,7 @@ Each model was tuned using **Optuna** for hyperparameter optimization with a **B
 
 Below is a summary of cross-validation performance for the top 10 brand-region groups:
 
-<figure>
-    <a href="/assets/postsImages/forecast-results.png"><img src="/assets/postsImages/forecast-results.png"></a>
-    <figcaption>Cross-Validation Results.</figcaption>
-</figure>
+![Cross-validation results](/assets/postsImages/forecast-results.png)
 
 ---
 
@@ -75,10 +57,7 @@ For each group, I generated:
 
 The following plot is representative of the final outputs delivered, for one of the top groups that was fit best by a **Prophet** model:
 
-<figure>
-    <a href="/assets/postsImages/prophet-forecast.png"><img src="/assets/postsImages/prophet-forecast.png"></a>
-    <figcaption>Forecast Plot.</figcaption>
-</figure>
+![Forecast plot](/assets/postsImages/prophet-forecast.png)
 
 Consider that this is an out-of-fold prediction plot, not a training set fit, which would likely look very close to the actual data for all months.
 
