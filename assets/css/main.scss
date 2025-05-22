@@ -36,4 +36,17 @@ search: false
     display: block;
     }
 
+.archive .entries-grid .entry {
+    flex: 0 0 31%; /* roughly 3 cards per row with some margin */
+    max-width: 31%;
+    margin: 1%;
+    }
+    
+@media (max-width: 768px) {
+    .archive .entries-grid .entry {
+        flex: 0 0 100%;
+        max-width: 100%;
+        }
+    }
+      
   

@@ -3,13 +3,15 @@ title: "Monthly Demand Forecasting for a multi-billion dollar multinational in t
 collection: portfolio
 permalink: /portfolio/demand-forecasting/
 date: 2025-05-15
-layout:
+layout: single
 excerpt: "Built tailored forecasting models for unit sales across product-region segments using cross-validated model selection and Bayesian optimization."
 tags: [forecasting, retail, machine learning, prophet, time series]
 feature_row: true
+header:
+  overlay_image: /assets/images/post-forecast.png
 image:
-  path: https://plus.unsplash.com/premium_photo-1680392933031-0e0493ad8b93?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-  alt: "Forecasting Image"
+  path: /assets/images/post-forecast.png
+  alt: "Demand Forecast"
 ---
 
 In this project, I was tasked with forecasting unit sales for the next six months using historical monthly data from a large multinational in the industrial coatings sector (Mexican subsidiary, anonymized for confidentiality).
