@@ -3,6 +3,7 @@ layout: single
 title: "About Me"
 permalink: /about/
 author_profile: true
+classes: wide
 header:
   overlay_image: /assets/images/aboutme.jpg
   overlay_filter: .4

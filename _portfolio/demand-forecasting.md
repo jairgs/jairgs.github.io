@@ -4,9 +4,12 @@ collection: portfolio
 permalink: /portfolio/demand-forecasting/
 date: 2025-05-15
 layout: single
+classes: wide
+author_profile: true
 excerpt: "Built tailored forecasting models for unit sales across product-region segments using cross-validated model selection and Bayesian optimization."
 tags: [forecasting, retail, machine learning, prophet, time series]
 feature_row: true
+
 header:
   image: https://images.unsplash.com/photo-1594999853137-3188c27b2886?q=80&w=3731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   teaser: https://images.unsplash.com/photo-1594999853137-3188c27b2886?q=80&w=3731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
