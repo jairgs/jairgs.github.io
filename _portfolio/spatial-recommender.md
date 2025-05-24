@@ -37,48 +37,43 @@ Identify high-potential urban and semi-urban areas for new store locations—bey
 
 ### 🔍 Methodology
 
-1. Socioeconomic Prediction per City Block
-   Each block in the country (from INEGI census boundaries) was classified into one of ten income groups. The challenge involved bridging two distinct data sources:
+#### 1. Socioeconomic Prediction per City Block
 
-Census data: Universally available but limited in detail.
+Each block in the country (based on INEGI census boundaries) was classified into one of ten income groups. This required reconciling two different data sources:
 
-ENIGH income survey: Rich in household-level income and consumption, but only available for a representative sample.
+- **Census data:** Universally available but limited in detail.
+- **ENIGH income survey:** Rich in household-level income and consumption data, but available only for a representative sample.
 
-To bridge the gap, I trained a probabilistic classifier assuming an underlying income distribution. Features included basic household characteristics (e.g., number of rooms, services), and outputs were income deciles.
+To bridge the gap, I trained a **probabilistic classifier** assuming an underlying income distribution. Input features included basic household characteristics such as number of rooms, access to services, and education level. The model produced predicted income deciles for each block.
 
-2. Expansion Potential Index
-   A custom index was developed to assess expansion suitability, composed of three key components:
+#### 2. Expansion Potential Index
 
-Direct Competition Score: Based on proximity and density of competing pharmacies and retailers.
+A custom index was developed to quantify the potential of each area for new retail locations. It included three core components:
 
-Health Services Cluster Score: Aggregates presence of clinics, hospitals, laboratories, and senior care homes.
+- **Direct Competition Score:** Density and proximity of competing pharmacies and retailers.
+- **Health Services Cluster Score:** Count of clinics, hospitals, laboratories, and senior care facilities.
+- **Market Size Score:** Total residential population, estimated number of households in the target income range, and floating population estimates.
 
-Market Size Score: Includes residential population, estimated number of households in the target income range, and floating/transient population metrics.
+Each component was normalized and combined into a unified expansion index.
 
-Each factor was standardized and combined into a unified index.
+#### 3. Hexagonal Spatial Aggregation (H3 Indexing)
 
-3. Hexagonal Spatial Aggregation
-
-To unify varying spatial resolutions across data sources, I applied hexagonal binnings. This allowed aggregation and comparison of metrics across consistent spatial units, enabling more actionable visual insights.
+To unify varying spatial resolutions, I applied **H3 hexagonal binning**, which allows consistent spatial aggregation and comparison.
 
 This involved:
 
-Intersecting census block-level predictions with hexagon cells.
+- Intersecting census block-level predictions with H3 cells.
+- Aggregating POIs and population data by hexagon.
+- Performing spatial joins using `geopandas` and `shapely`.
 
-Aggregating POIs and population data spatially.
+#### 4. Interactive Deployment & Visualization
 
-Spatial joins using geopandas and shapely.
+The final output was an interactive web application featuring:
 
-4. Interactive Deployment & Visualization
-   The final product was an interactive web app built with:
-
-Mapbox GL JS for high-performance map rendering.
-
-Color-coded hexagon layers to represent the expansion index.
-
-Tooltips and togglable layers to show detailed metrics per area.
-
-Containerized with Docker, making it portable and easily deployable on cloud or local infrastructure.
+- **Mapbox GL JS** for high-performance rendering.
+- **Color-coded H3 hex layers** representing the expansion index.
+- **Interactive tooltips** and togglable data layers.
+- **Dockerized deployment**, allowing easy reuse and deployment on various environments.
 
 [🌐 You can explore the live version here](sr.jairgs.vip)
 
@@ -108,6 +103,8 @@ Reuse the methodology in future cities or verticals with minimal reconfiguration
 
 Census-Survey Fusion: Careful matching of sparse and dense datasets can yield actionable predictions at national scale.
 
-Scalability: Containerization and modular architecture facilitate cross-industry deployment.
+**Scalability**  
+Containerization and modular architecture facilitate cross-industry deployment.
 
-Next Steps: Integrating real-time foot traffic and POS data for continuous optimization. Add layers and more interactive customization.
+**Next Steps**  
+Integrating real-time foot traffic and POS data for continuous optimization. Add layers and more interactive customization.
