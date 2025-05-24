@@ -21,6 +21,8 @@ header:
   teaser: https://plus.unsplash.com/premium_photo-1712175879037-86f0007dc7dd?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
+![](/assets/postsImages/sr-gif.gif)
+
 ### Overview
 
 This project delivers a reusable and data-driven tool for identifying optimal retail expansion zones in Mexico using a combination of socioeconomic prediction, geospatial clustering, and interactive visualization. Originally designed for a national pharmacy chain, the solution was later containerized for adaptability across industries.
