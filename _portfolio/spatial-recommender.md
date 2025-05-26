@@ -7,18 +7,22 @@ layout: single
 classes: wide
 author_profile: true
 excerpt: "Developed a scalable solution to identify high-potential retail zones across Mexico using census-based income prediction, competitor clustering, and healthcare infrastructure analysis. Aggregated data with hexagons and deployed an interactive Mapbox-based app. Enabled data-driven site selection for a national pharmacy chain. Built with Python, scikit-learn, Docker, and geopandas."
-tags:
-  - retail
-  - machine learning
-  - geospatial
-  - docker
-  - mapbox
+categories:
+  - geospatial analytics
+  - public sources data integration
+  - survey inference
+  - classification
+  - dashboarding
+  - web app
+  - maps integration
+  - cloud deployment
+  - quantitative index generation
 
 feature_row: true
 
 header:
-  image: https://plus.unsplash.com/premium_photo-1712175879037-86f0007dc7dd?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-  teaser: https://plus.unsplash.com/premium_photo-1712175879037-86f0007dc7dd?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  image: https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  teaser: https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
 ![](/assets/postsImages/sr-gif.gif)

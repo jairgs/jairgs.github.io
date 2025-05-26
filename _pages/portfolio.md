@@ -11,3 +11,5 @@ header:
   overlay_filter: .4
   caption: "Photo by Unsplash"
 ---
+
+{% include sidebar-portfolio-categories.html %}

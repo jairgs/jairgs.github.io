@@ -217,6 +217,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-archives
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -280,3 +281,14 @@ collections:
   portfolio:
     output: true
     permalink: /portfolio/:path/
+
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: archive
+  permalinks:
+    category: /categories/:name/
+  collections:
+    category:
+      - portfolio
