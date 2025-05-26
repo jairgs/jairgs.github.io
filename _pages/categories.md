@@ -1,18 +1,18 @@
 ---
 title: "Portfolio by Category"
 permalink: /portfolio/categories/
-layout: single
+layout: archvie
 author_profile: true
 ---
 
-<h2>Portfolio Categories</h2>
+{% assign all_cats = post_cats | concat: port_cats | uniq | sort %}
+
 <ul>
-  {% assign all_cats = site.portfolio | map: "categories" | join: "," | split: "," | uniq | sort %}
   {% for cat in all_cats %}
+    {% assign port_count = site.portfolio | where_exp: "p", "p.categories contains cat" | size %}
+    {% assign total = post_count | plus: port_count %}
     <li>
-      <a href="/portfolio/category/{{ cat | downcase | url_encode }}/">
-        {{ cat | capitalize }}
-      </a>
+      <a href="/categories/{{ cat | downcase | url_encode }}/">{{ cat }}</a> ({{ total }})
     </li>
   {% endfor %}
 </ul>

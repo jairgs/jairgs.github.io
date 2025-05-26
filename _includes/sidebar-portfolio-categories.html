@@ -1,7 +1,0 @@
-<h3>Portfolio Categories</h3>
-<ul>
-    {% assign all_cats = site.portfolio | map: "categories" | join: "," | split: "," | uniq | sort %}
-    {% for cat in all_cats %}
-      <li><a href="/portfolio/category/{{ cat | downcase | url_encode }}/">{{ cat }}</a></li>
-    {% endfor %}
-</ul>
