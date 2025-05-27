@@ -5,9 +5,10 @@ permalink: /portfolio/spatial-recommender/
 date: 2024-04-15
 layout: single
 classes: wide
+share: false
 author_profile: true
-excerpt: "Developed a scalable solution to identify high-potential retail zones across Mexico using census-based income prediction, competitor clustering, and healthcare infrastructure analysis. Aggregated data with hexagons and deployed an interactive Mapbox-based app. Enabled data-driven site selection for a national pharmacy chain. Built with Python, scikit-learn, Docker, and geopandas."
-categories:
+excerpt: >
+"categories:
   - geospatial analytics
   - public sources data integration
   - survey inference
@@ -16,7 +17,8 @@ categories:
   - web app
   - maps integration
   - cloud deployment
-  - quantitative index generation
+  - quantitative index generation"
+
 
 feature_row: true
 

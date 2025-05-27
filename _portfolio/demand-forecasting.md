@@ -5,13 +5,15 @@ permalink: /portfolio/demand-forecasting/
 date: 2025-05-15
 layout: single
 classes: wide
+share: false
 author_profile: true
-excerpt: "Built tailored forecasting models for unit sales across product-region segments using cross-validated model selection and Bayesian optimization."
-categories:
+excerpt: >
+"Categories:
   - demand forecasting
   - offline inference
   - timeseries analysis
-  - data processing
+  - data processing"
+
 
 feature_row: true
 
