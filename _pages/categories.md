@@ -7,24 +7,42 @@ entries_layout: list
 ---
 
 {% comment %}
-Build a combined hash of categories including both blog posts and portfolio items
+Ensure both collections exist and are arrays (avoid concat crash in Jekyll 3)
 {% endcomment %}
 
-{% assign all_docs = site.posts | concat: site.portfolio %}
-{% assign category_map = "" | split: "" %}
+{% assign posts = site.posts %}
+{% assign portfolio = site.portfolio %}
+
+{% unless posts %}
+{% assign posts = "" | split: "" %}
+{% endunless %}
+
+{% unless portfolio %}
+{% assign portfolio = "" | split: "" %}
+{% endunless %}
+
+{% assign all_docs = posts | concat: portfolio %}
+
+{% comment %}
+Build a category-to-docs map manually
+{% endcomment %}
+{% assign categories_map = "" | split: "" %}
 
 {% for doc in all_docs %}
 {% for cat in doc.categories %}
 {% assign key = cat | downcase %}
-{% if category_map contains key %}
-{% assign index = category_map | index_of: key %}
-{% assign updated = category_map[index][1] | push: doc %}
-{% assign category_map = category_map | where_exp: "c", "c[0] != key" %}
-{% assign category_map = category_map | push: [key, updated] %}
-{% else %}
-{% assign category_map = category_map | push: [key, [doc]] %}
+{% assign found = false %}
+{% for entry in categories_map %}
+{% if entry[0] == key %}
+{% assign entry = entry[1] | push: doc %}
+{% assign categories_map = categories_map | where_exp: "e", "e[0] != key" | push: [key, entry] %}
+{% assign found = true %}
 {% endif %}
+{% endfor %}
+{% unless found %}
+{% assign categories_map = categories_map | push: [key, [doc]] %}
+{% endunless %}
 {% endfor %}
 {% endfor %}
 
-{% include posts-taxonomy.html taxonomies=category_map %}
+{% include posts-taxonomy.html taxonomies=categories_map %}
