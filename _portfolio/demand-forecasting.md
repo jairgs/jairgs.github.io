@@ -7,13 +7,11 @@ layout: single
 classes: wide
 share: false
 author_profile: true
-excerpt: >
-"Categories:
+excerpt: "Categories:
   - demand forecasting
   - offline inference
   - timeseries analysis
   - data processing"
-
 
 feature_row: true
 

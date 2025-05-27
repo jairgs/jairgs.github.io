@@ -7,8 +7,7 @@ layout: single
 classes: wide
 share: false
 author_profile: true
-excerpt: >
-"categories:
+excerpt: "categories:
   - geospatial analytics
   - public sources data integration
   - survey inference
@@ -18,7 +17,6 @@ excerpt: >
   - maps integration
   - cloud deployment
   - quantitative index generation"
-
 
 feature_row: true
 
