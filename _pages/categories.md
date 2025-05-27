@@ -27,28 +27,20 @@ Collect all unique categories from posts and portfolio
   {% endfor %}
 </ul>
 
+{% assign all_docs = site.posts | concat: site.portfolio %}
+
 {% for cat in all_cats %}
 
   <section id="{{ cat | slugify }}" class="taxonomy__section">
     <h2 class="archive__subtitle">
-        {{ cat | replace: "-", " " | split: " " | map: "capitalize" | join: " " }}
+      {{ cat | replace: "-", " " | split: " " | map: "capitalize" | join: " " }}
     </h2>
 
     <div class="entries-{{ page.entries_layout | default: 'list' }}">
-      {% assign docs = site.posts | concat: site.portfolio %}
-      {% assign filtered = "" | split: "" %}
-
-      {% for doc in docs %}
-        {% for cat_name in doc.categories %}
-          {% if cat_name == cat %}
-            {% assign filtered = filtered | push: doc %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-
-      {% for doc in filtered %}
-        {% include archive-single.html type=page.entries_layout post=doc %}
+      {% for doc in all_docs %}
+        {% if doc.categories contains cat %}
+          {% include archive-single.html post=doc type=page.entries_layout %}
+        {% endif %}
       {% endfor %}
     </div>
 
