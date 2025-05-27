@@ -35,7 +35,7 @@ Collect all unique categories from posts and portfolio
       {% assign docs = site.posts | concat: site.portfolio %}
       {% assign filtered = docs | where_exp: "doc", "doc.categories contains cat" %}
       {% for doc in filtered %}
-        {% include archive-single.html %}
+        {% include archive-single.html type=page.entries_layout post=doc %}
       {% endfor %}
     </div>
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: "Back to Top" }} &uarr;</a>
