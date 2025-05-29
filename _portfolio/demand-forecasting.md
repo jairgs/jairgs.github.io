@@ -7,11 +7,12 @@ layout: single
 classes: wide
 share: false
 author_profile: true
-excerpt: "Categories:
+excerpt: "Developed segmented time series forecasts for a global materials company, tuning SARIMAX, SES, and Prophet models per brand-region group using Optuna and expanding-window CV"
+categories:
   - demand forecasting
   - offline inference
   - timeseries analysis
-  - data processing"
+  - data processing
 
 feature_row: true
 

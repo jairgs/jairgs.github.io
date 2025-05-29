@@ -7,7 +7,8 @@ layout: single
 classes: wide
 share: false
 author_profile: true
-excerpt: "categories:
+excerpt: "Built a geospatial intelligence tool for retail expansion, combining survey-based income prediction, H3 spatial aggregation, and an interactive web app with Mapbox and Docker for deployment."
+categories:
   - geospatial analytics
   - public sources data integration
   - survey inference
@@ -16,7 +17,7 @@ excerpt: "categories:
   - web app
   - maps integration
   - cloud deployment
-  - quantitative index generation"
+  - quantitative index generation
 
 feature_row: true
 
