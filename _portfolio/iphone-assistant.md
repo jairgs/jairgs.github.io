@@ -64,7 +64,7 @@ This project is ideal for:
 
 ## 🚀 Try It Yourself
 
-You can take a look at the Demo [HERE](https://rag-chatbot.jairgs.vip).
+You can take a look at the Demo [HERE](https://chatbot.jairgs.vip).
 
 <figure>
     <a href="/assets/postsImages/rag-chatbot.png"><img src="/assets/postsImages/rag-chatbot.png"></a>
